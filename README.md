@@ -25,19 +25,20 @@ from langchain.prompts import ChatPromptTemplate
 from langchain.chat_models import ChatOpenAI
 from langchain.schema.output_parser import StrOutputParser
 prompt = ChatPromptTemplate.from_template(
-    "Tell me a short {style} joke about {topic}."
+    "Explain the topic '{topic}' in a {depth} and clear way, "
+    "covering key points, examples, and applications."
 )
 model = ChatOpenAI()
 output_parser = StrOutputParser()
 chain = prompt | model | output_parser
-result = chain.invoke({"topic": "bears", "style": "funny"})
+result = chain.invoke({"topic": "Hebbian Learning", "depth": "Brief"})
 print(result)
 
 
 ```
 
 ### OUTPUT:
-<img width="449" height="100" alt="image" src="https://github.com/user-attachments/assets/fd6f165a-4f4c-4201-8a15-bf5a64856a78" />
+<img width="1220" height="494" alt="image" src="https://github.com/user-attachments/assets/4c33774a-eaa8-4db8-a6c5-4b1d1883716b" />
 
 
 
